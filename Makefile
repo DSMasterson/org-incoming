@@ -1,11 +1,12 @@
 EMACS = emacs
 INSTALL_INFO = install-info
+MAKEINFO = makeinfo
 ORG_DIR1 = -L $(word 1,$(wildcard $(HOME)/.emacs.d/elpa/org-9*))
 ifeq ($(words $(ORG_DIR1)),1)
 	ORG_DIR1 =
 endif
 ORG_LIB = -l org -l ox-texinfo
-ORG_PUB = --eval='(progn (find-file (expand-file-name "org-incoming.org")) (org-texinfo-export-to-info))'
+ORG_PUB = --eval='(progn (find-file (expand-file-name "org-incoming.org")) (org-texinfo-export-to-texinfo))'
 EMACS_ARGS = --batch $(ORG_DIR1) $(ORG_LIB) $(ORG_PUB)
 
 all: info clean
@@ -15,6 +16,7 @@ all: info clean
 info: README.org
 	cp README.org org-incoming.org
 	$(EMACS) $(EMACS_ARGS)
+	$(MAKEINFO) org-incoming.texi
 	$(INSTALL_INFO) org-incoming.info dir
 
 clean:

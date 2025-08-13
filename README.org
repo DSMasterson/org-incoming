@@ -64,8 +64,6 @@ In the query phase, your emacs frame should look like this:
 #+caption: Screenshot of the org-incoming query phase
 [[./doc/screenshot_query.png]]
 
-#[[https://raw.githubusercontent.com/tinloaf/org-incoming/main/doc/screenshot_query.png]]
-
 The PDF in displayed in one window, and the other window contains the
 query buffer. The query buffer contains an form in which you should
 assign the PDF a title and a date. Note that you can have the date
@@ -87,8 +85,6 @@ In the annotation phase, your emacs frame should look like this:
 
 #+caption: Screenshot of the org-incoming annotation phase
 [[./doc/screenshot_annotation.png]]
-
-#[[https://raw.githubusercontent.com/tinloaf/org-incoming/main/doc/screenshot_annotation.png]]
 
 Here you still see the PDF on the one side, and the annotation file to
 be created on the other side. Note that the annotation file is
@@ -228,5 +224,5 @@ ${extracted}
   :PROPERTIES:
   :CUSTOM_ID: license
   :END:
-This software is released under the MIT license, also knows as the
+This software is released under the MIT license -- also known as the
 "Expat License". See License.txt for details.
