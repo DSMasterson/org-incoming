@@ -11,9 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Python 3.9
+    - name: Set up Python 3.10
       uses: actions/setup-python@v1
-      with: { python-version: 3.9 }
+      with: { python-version: 3.10 }
     - name: Install
       run: |
         python -m pip install --upgrade pip
@@ -24,7 +24,10 @@ jobs:
       env:
         LOCAL_REPO: ${{ github.workspace }}
         # RECIPE is your recipe as written for MELPA:
-        RECIPE: (org-incoming :fetcher github :repo "tinloaf/org-incoming")
+        RECIPE: (org-incoming
+	:fetcher github
+	:repo "tinloaf/org-incoming"
+	:files '(:defaults "doc/*.png))
         # set this to false (or remove it) if the package isn't on MELPA:
         EXIST_OK: false
       run: echo $GITHUB_REF && make -C ~/melpazoid
